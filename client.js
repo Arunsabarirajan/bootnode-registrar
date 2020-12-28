@@ -141,8 +141,14 @@ enodeUpdater.prototype.Run = function (obj) {
                 listenPort = 30303;
             }
 
+            let enode = result.enode
+            console.log("Enode Before",enode)
+            enode=enode.replace('enode://','');
+            enode=enode.replace('@127.0.0.1:30303?discport=0','');
+            console.log("Enode After",enode);
+            
             var data = {
-                enode: result.id,
+                enode: enode,
                 port: listenPort,
                 ip: process.env.HOST_IP,
                 publicIp: process.env.BOOTNODE_PUBLIC_IP,
