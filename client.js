@@ -1,7 +1,7 @@
 var Web3 = require('web3');
 var net = require('net');
 var fs = require('fs');
-var request = require('request');
+var request = require('axios');
 var sleep = require('sleep');
 
 let ipcPath = "/home/geth/.geth/geth.ipc";
