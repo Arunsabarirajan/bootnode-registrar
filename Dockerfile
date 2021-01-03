@@ -1,7 +1,9 @@
-FROM ethereumex/eth-netstats
+FROM node:9.2.1
 
-RUN git clone https://github.com/Arunsabarirajan/bootnode-registrar.git /var/lib/bootnode
 WORKDIR /var/lib/bootnode
-RUN npm install
+COPY package*.json ./
+RUN npm install --production
 
-ENTRYPOINT ["/bin/bash"]]
+COPY . .
+EXPOSE 3000
+CMD [ "node", "app.js" ]
